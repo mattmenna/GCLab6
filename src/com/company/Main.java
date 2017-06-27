@@ -21,8 +21,15 @@ public class Main {
             String lowerCaseinput = input.toLowerCase();
             System.out.println(lowerCaseinput);
 
+            if (lowerCaseinput.substring(0, 1).matches("[aeiou]")) {
+                System.out.println("Vowel in first letter");
+            } else {
+                System.out.println("Consonant");
+            }
+            scnr.nextLine();
             System.out.println("Do you want to continue? Please use y or n");
             cont = scnr.next().charAt(0);
+            scnr.nextLine();
 
         } while (cont != 'n');
 
