@@ -9,6 +9,7 @@ todo Does this need stringbuilder?
 
  */
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -17,16 +18,21 @@ public class Main {
         Scanner scnr = new Scanner(System.in);
         System.out.println("Welcome to the Pig Latin Translator");
         char cont;
+        String[] output;
 
         do {
             System.out.println("Enter a line to be translated:");
-            String input = scnr.nextLine();
+            String input = scnr.nextLine(); // space required for regex in split
             String lowerCaseinput = input.toLowerCase();
+            lowerCaseinput += " ";// adds space to end for regex
             System.out.println(lowerCaseinput);
 
             if (lowerCaseinput.substring(0, 1).matches("[aeiou]")) {
                 System.out.println("Vowel in first letter");
-                System.out.println(lowerCaseinput + "way");
+                System.out.println(lowerCaseinput);
+                output = lowerCaseinput.split(" ");
+                System.out.println(String.join("way ", output)+ "way");
+
             } else {
                 System.out.println("Consonant");
             }
