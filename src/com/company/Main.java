@@ -21,22 +21,22 @@ public class Main {
         System.out.println("Welcome to the Pig Latin Translator");
         char cont;
         String[] output;
-
+        String wordToCheck;
         do {
             System.out.println("Enter a line to be translated:");
-            String input = scnr.nextLine(); // space required for regex in split
-            String lowerCaseinput = input.toLowerCase();
-            lowerCaseinput += " ";// adds space to end for regex
-            System.out.println(lowerCaseinput);
+            String input = scnr.nextLine().toLowerCase(); // space required for regex in split
+            String[] pigInput = input.split(" ");
 
-            if (lowerCaseinput.substring(0, 1).matches("[aeiou]")) {
-                System.out.println("Vowel in first letter");
-                System.out.println(lowerCaseinput);
-                output = lowerCaseinput.split(" ");
-                System.out.println(String.join("way ", output)+ "way");
+            System.out.println(input);
 
-            } else {
-                System.out.println("Consonant");
+            for (int i = 0; i < pigInput.length; i++) {
+                wordToCheck = pigInput[i];
+                if (wordToCheck.substring(0,1).matches("[aeiou]")){
+                    pigInput[i] = pigInput[i]+ "way";
+                } else {
+                    wordToCheck =
+                }
+                System.out.print(pigInput[i] + " ");
             }
 
             scnr.nextLine(); // clears scanner so loop operates properly
