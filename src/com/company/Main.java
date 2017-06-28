@@ -27,17 +27,26 @@ public class Main {
             String input = scnr.nextLine().toLowerCase(); // space required for regex in split
             String[] pigInput = input.split(" ");
 
+            StringBuilder consonant = new StringBuilder();
+
             System.out.println(input);
 
             for (int i = 0; i < pigInput.length; i++) {
                 wordToCheck = pigInput[i];
                 if (wordToCheck.substring(0,1).matches("[aeiou]")){
                     pigInput[i] = pigInput[i]+ "way";
+
                 } else {
-                    wordToCheck =
-                }
+                    for (int j =0; j<wordToCheck.length(); j++) {
+                        if (wordToCheck.substring(j, j + 1).matches("[bcdfghjklmnpqrstvwxyz]")) {
+                            consonant.append(wordToCheck.substring(j, j + 1));
+                            //consonant.deleteCharAt(j);
+                        } else break;
+                    }// end for
+                pigInput[i] = consonant.toString();
+                } // end else
                 System.out.print(pigInput[i] + " ");
-            }
+            } // end for
 
             scnr.nextLine(); // clears scanner so loop operates properly
             System.out.println("Do you want to continue? Please use y or n");
