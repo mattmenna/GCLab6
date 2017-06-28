@@ -37,13 +37,13 @@ public class Main {
                     pigInput[i] = pigInput[i]+ "way";
 
                 } else {
-                    for (int j =0; j<wordToCheck.length(); j++) {
+                    for (int j =0; j<wordToCheck.length(); j++) { // put this in a method and return an int to get the comment in line 46 to work.
                         if (wordToCheck.substring(j, j + 1).matches("[bcdfghjklmnpqrstvwxyz]")) {
-                            consonant.append(wordToCheck.substring(j, j + 1));
+                            consonant.append(wordToCheck.substring(j+1, wordToCheck.length()));
                             //consonant.deleteCharAt(j);
                         } else break;
                     }// end for
-                pigInput[i] = consonant.toString();
+                pigInput[i] = consonant.toString() /* + wordToCheck.substring(j,j+1) */ +"way";
                 } // end else
                 System.out.print(pigInput[i] + " ");
             } // end for
