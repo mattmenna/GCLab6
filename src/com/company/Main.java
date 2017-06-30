@@ -34,16 +34,18 @@ public class Main {
             for (int i = 0; i < pigInput.length; i++) {
                 wordToCheck = pigInput[i];
                 if (wordToCheck.substring(0,1).matches("[aeiou]")){
-                    pigInput[i] = pigInput[i]+ "way";
+                    pigInput[i] = pigInput[i] + "ay";
 
                 } else {
                     for (int j =0; j<wordToCheck.length(); j++) { // put this in a method and return an int to get the comment in line 46 to work.
                         if (wordToCheck.substring(j, j + 1).matches("[bcdfghjklmnpqrstvwxyz]")) {
+                            //consonant.append(wordToCheck.substring(j,wordToCheck.length() ));
                             consonant.append(wordToCheck.substring(j+1, wordToCheck.length()));
                             //consonant.deleteCharAt(j);
                         } else break;
                     }// end for
-                pigInput[i] = consonant.toString() /* + wordToCheck.substring(j,j+1) */ +"way";
+                    consonant.append(wordToCheck.charAt(0));
+                pigInput[i] = consonant.toString() /* + wordToCheck.substring(j,j+1) */ +"ay";
                 } // end else
                 System.out.print(pigInput[i] + " ");
             } // end for
